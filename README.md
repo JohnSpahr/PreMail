@@ -16,7 +16,8 @@ A simple Gmail app for Palm/HP webOS! (Works in 2021)
 This application was tested on a Palm Pre and Pixi Plus, both running webOS 1.4.5, as well as a Palm Pre 2 running webOS 2.2.4.
 
 ### Screenshots
-![Inbox](Screenshots/inbox.png) ![Compose](Screenshots/compose.png)
+![Inbox](Screenshots/inbox.png)
+![Compose](Screenshots/compose.png)
 
 ### My Website
 Find more of my webOS apps [here](https://tectrasystems.org/software.html#webos).
