@@ -1,8 +1,22 @@
+/*
+        
+    _____          __  __       _ _ 
+    |  __ \        |  \/  |     (_) |
+    | |__) | __ ___| \  / | __ _ _| |
+    |  ___/ '__/ _ \ |\/| |/ _` | | |
+    | |   | | |  __/ |  | | (_| | | |
+    |_|   |_|  \___|_|  |_|\__,_|_|_|
+                                    
+                                    
+    Copyright (c) John Spahr 2020-2021
+*/
+
 function InfoAssistant() {
 
 }
 
 InfoAssistant.prototype.setup = function() {
+    //setup command menu...
     this.cmdMenuAttributes = {
         menuClass: 'no-fade'
     }
@@ -21,6 +35,7 @@ InfoAssistant.prototype.setup = function() {
         ]
     };
 
+    //initialize command menu...
     this.controller.setupWidget(Mojo.Menu.commandMenu, this.cmdMenuAttributes, this.commandMenuModel);
 };
 

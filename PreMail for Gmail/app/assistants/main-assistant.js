@@ -1,3 +1,16 @@
+/*
+        
+    _____          __  __       _ _ 
+    |  __ \        |  \/  |     (_) |
+    | |__) | __ ___| \  / | __ _ _| |
+    |  ___/ '__/ _ \ |\/| |/ _` | | |
+    | |   | | |  __/ |  | | (_| | | |
+    |_|   |_|  \___|_|  |_|\__,_|_|_|
+                                    
+                                    
+    Copyright (c) John Spahr 2020-2021
+*/
+
 function MainAssistant() {
     this.baseURL = "https://mail.google.com/"; //used everywhere, so set as base URL
 }
@@ -26,6 +39,7 @@ MainAssistant.prototype.setup = function() {
     //initialize browser
     this.controller.setupWidget('browser', this.browserAtt, this.model);
 
+    //setup command menu...
     this.cmdMenuAttributes = {
         menuClass: 'no-fade'
     }
@@ -44,11 +58,11 @@ MainAssistant.prototype.setup = function() {
             }
         ]
     };
-
     this.menuAttr = {
         omitDefaultItems: true
     };
 
+    //initialize cmd menu...
     this.controller.setupWidget(Mojo.Menu.commandMenu, this.cmdMenuAttributes, this.commandMenuModel);
 
     //loadingSpinner
@@ -68,6 +82,7 @@ MainAssistant.prototype.setup = function() {
     //when loading ends
     Mojo.Event.listen(this.controller.get("browser"), Mojo.Event.webViewLoadStopped, this.handleStopLoading.bind(this));
 
+    //setup app menu...
     this.appMenuModel = {
         items: [
             { label: "Selected Text" },
@@ -86,12 +101,13 @@ MainAssistant.prototype.setup = function() {
             { label: "Gmail Menu", command: "gmailMenu", shortcut: "m" },
             { label: "Sign Out", command: "signOut" },
             { label: "PreMail" },
-            { label: "User Guide", command: "guide" },
+            { label: "User Guide", command: "guide", shortcut: "g" },
             { label: "What's New", command: "changelog" },
             Mojo.Menu.helpItem
         ]
     };
 
+    //initialize app menu...
     this.controller.setupWidget(Mojo.Menu.appMenu, this.menuAttr, this.appMenuModel); //set up app menu
 
     //initialize (top) viewMenu
@@ -140,11 +156,12 @@ MainAssistant.prototype.cleanup = function(event) {
 };
 
 MainAssistant.prototype.handleHeaderPress = function(event) {
-    //show navigation menu....
+    //show navigation menu...
     this.controller.showAlertDialog({
         onChoose: function(value) {
             switch (value) {
                 case "yes":
+                    //if user accepts prompt to reload page...
                     this.controller.get('browser').mojo.reloadPage(); //reload page
                     break;
             }
