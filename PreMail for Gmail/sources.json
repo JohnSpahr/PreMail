@@ -11,5 +11,6 @@
     {
         "scenes": "guide",
         "source": "app/assistants/guide-assistant.js"
-    }
+    },
+    { "source": "app/models/updater-model.js" }
 ]

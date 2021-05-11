@@ -12,10 +12,14 @@
 */
 
 function MainAssistant() {
+    this.updateCheckDone = false;
     this.baseURL = "https://mail.google.com/"; //used everywhere, so set as base URL
 }
 
 MainAssistant.prototype.setup = function() {
+    //create updater model
+    this.updaterModel = new UpdaterModel();
+
     //check if first run
     var currVersion = Mojo.Controller.appInfo.version;
     var firstRun = new Mojo.Model.Cookie("firstRun" + currVersion);
@@ -142,7 +146,18 @@ MainAssistant.prototype.orientationChanged = function(orientation) {
     this.controller.modelChanged(bottomWidgetModel);
 };
 
-MainAssistant.prototype.activate = function(event) {};
+MainAssistant.prototype.activate = function(event) {
+    //handle updates
+    this.updateCheckDone = true;
+    this.updaterModel.CheckForUpdate("PreMail", function(responseObj) {
+        if (responseObj && responseObj.updateFound) {
+            this.updaterModel.PromptUserForUpdate(function(response) {
+                if (response)
+                    this.updaterModel.InstallUpdate();
+            }.bind(this));
+        }
+    }.bind(this));
+};
 
 MainAssistant.prototype.deactivate = function(event) {
     //remove event handlers...
