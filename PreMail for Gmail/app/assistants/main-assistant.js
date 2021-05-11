@@ -119,7 +119,7 @@ MainAssistant.prototype.setup = function() {
         items: [{
             items: [
                 { label: $L('Back'), icon: "back", command: "goBack" },
-                { label: $L('PreBook'), width: 200, command: "refreshPage" },
+                { label: $L('PreMail'), width: 200, command: "refreshPage" },
                 { label: $L('Forward'), icon: "forward", command: "goForward" }
             ]
         }]
