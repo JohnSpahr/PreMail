@@ -1,5 +1,4 @@
 # PreMail
-![PreMail logo](PreMail%20for%20Gmail/images/icon.png)
 
 A simple Gmail app for Palm/HP webOS! (Works in 2021)
 
