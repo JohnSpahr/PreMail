@@ -3,7 +3,7 @@
 
 A simple Gmail app for Palm/HP webOS! (Works in 2021)
 
-## Unfortubarely PreMail no longer works. Thank you to everyone who contributed.
+## Unfortunately, PreMail no longer works. Thank you to everyone who contributed.
 
 - Created and maintained by [John Spahr](https://github.com/JohnSpahr).
 - Auto updater, custom headers, and more by [codepoet80](https://github.com/codepoet80).
