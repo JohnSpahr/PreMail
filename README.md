@@ -1,6 +1,6 @@
 # PreMail
 
-A simple Gmail app for Palm/HP webOS! (Works in 2021)
+A simple Gmail app for Palm/HP webOS! (DEFUNCT)
 
 ## Unfortunately, PreMail no longer works. Thank you to everyone who contributed.
 
